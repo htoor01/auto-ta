@@ -1,6 +1,5 @@
-# AutoTA - Automatic Grading tool
+# AutoTA
 
---
 Purpose:
 To reduce feedback time for students and workload for teaching assistants (TAs).
 
