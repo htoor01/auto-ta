@@ -1,7 +1,7 @@
 # AutoTA
 
-Purpose:
-To reduce feedback time for students and workload for teaching assistants (TAs).
+Purpose: To reduce feedback time for students and workload for teaching assistants (TAs).  
+Demo video: [Link]
 
 Workflow:
 - Pull submissions from Google Classroom
@@ -16,4 +16,10 @@ Architecture:
 - Java (JUnit requires JRE to execute)
 - SQLite (persistence, in case of app crash or work breaks)
 
-Note: Everything was designed, built and documented by Haaris Toor, without the use of any AI support.
+Notes: 
+- A variation of this project was developed for the Summer 2026 Java QBLC Batch. It processed 200+ submissions, enabling us to challenge our students. This contributed to a 91% pass rate on the WWP district exam.
+- Planning was done with the support of AI. All implementation and documentation was done by Haaris Toor.
+
+# Set Up Steps
+
+1. Ensure Git is installed on your device.
