@@ -17,8 +17,8 @@ Architecture:
 - SQLite (persistence, in case of app crash or work breaks)
 
 Notes: 
-- A variation of this project was developed for the Summer 2026 Java QBLC Batch. It processed 200+ submissions, enabling us to challenge our students. This contributed to a 91% pass rate on the WWP district exam.
-- Planning was done with the support of AI. All implementation and documentation was done by Haaris Toor.
+- This project was developed for the Quakerbridge Learning Center's 2026 Java Batch. To simulate this, local JSON files and mock data is used to mimic Classroom API responses and student data in the SQLite database.
+- To avoid leaking sensitive student data, all implementation and documentation was done by Haaris Toor (without AI support).
 
 # Set Up Steps
 
