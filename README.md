@@ -17,7 +17,7 @@ Architecture:
 - SQLite (persistence, in case of app crash or work breaks)
 
 Notes: 
-- This project was developed for the Quakerbridge Learning Center's 2026 Java Batch. To simulate this, local JSON files and mock data is used to mimic Classroom API responses and student data in the SQLite database.
+- This project was developed for the Quakerbridge Learning Center's 2026 Java Batch. To simulate this, local JSON files and mock data is used to mimic API responses and student data.
 - To avoid leaking sensitive student data, all implementation and documentation was done by Haaris Toor (without AI support).
 
 # Set-Up Steps
