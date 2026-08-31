@@ -16,13 +16,19 @@ Architecture:
 - Docker containers (checking untested or malicious code)
 - Java (JUnit requires JRE to execute)
 - SQLite (persistence, in case of app crash or work breaks)
+- Maven (handle dependencies conveniently)
 
-File structure from root (after pulling repo):
-- bin (binary folder, for compiled files)
-- data (for mock data)
-- lib (library folder, for dependencies; managed by Maven)
-- src (source folder, for main code)
-- .gitignore and .env (preserve secrets)
+File structure:
+- src/
+   - main/
+     - java/
+       - App.java
+     - resources/
+       - data/
+         - empty.txt
+  - test/
+- .gitignore (preserve secrets)
+- pom.xml (Maven dependencies)
 - README.md (this file)
 
 Notes: 
