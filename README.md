@@ -17,6 +17,14 @@ Architecture:
 - Java (JUnit requires JRE to execute)
 - SQLite (persistence, in case of app crash or work breaks)
 
+File structure from root (after pulling repo):
+- bin (binary folder, for compiled files)
+- data (for mock data)
+- lib (library folder, for dependencies; managed by Maven)
+- src (source folder, for main code)
+- .gitignore and .env (preserve secrets)
+- README.md (this file)
+
 Notes: 
 - This project was developed for the Quakerbridge Learning Center's 2026 Java Batch. To simulate this, local JSON files and mock data is used to mimic API responses and student data.
 - To avoid leaking sensitive student data, all implementation and documentation was done by Haaris Toor (without AI support).
