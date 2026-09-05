@@ -2,7 +2,6 @@
 (Project in progress)
 
 Purpose: To reduce feedback time for students and workload for teaching assistants (TAs).  
-Concepts: RESTful APIs, Docker containers, unit testing, data persistence, dependency management.  
 Demo video: [Link]
 
 Workflow:
@@ -10,6 +9,14 @@ Workflow:
 - Run JUnit tests in a Docker container
 - Evaluate and manually approve auto-grades in GUI
 - Push final grades back to Google Classroom
+
+Concepts learned: 
+- RESTful APIs
+- Docker containers
+- Unit testing
+- Data persistence
+- Dependency management
+- Version control
 
 Architecture:
 - REST APIs (pulling submissions and grades from Google Classroom)
