@@ -10,6 +10,14 @@ Workflow:
 - Evaluate and manually approve auto-grades in GUI
 - Push final grades back to Google Classroom
 
+Concepts learned: 
+- RESTful APIs
+- Docker containers
+- Unit testing
+- Data persistence
+- Dependency management
+- Version control
+
 Architecture:
 - REST APIs (pulling submissions and grades from Google Classroom)
 - JUnit tests (deterministic evaluation of Java submissions)

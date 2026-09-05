@@ -7,4 +7,8 @@ target/
 .env
 
 *.iml
-.env
+
+src/main/resources/credentials.json
+**/credentials.json
+
+tokens/
