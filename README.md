@@ -1,7 +1,8 @@
 # AutoTA Overview
 (Project in progress)
 
-Purpose: To reduce feedback time for students and workload for teaching assistants (TAs).  
+Purpose: To reduce feedback time for students and workload for teaching assistants (TAs). 
+Concepts: RESTful APIs, Docker containers, unit testing, data persistence, dependency management
 Demo video: [Link]
 
 Workflow:
