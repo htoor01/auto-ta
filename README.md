@@ -1,7 +1,9 @@
 # AutoTA Overview
 (Project in progress)
 
-Purpose: To reduce feedback time for students and workload for teaching assistants (TAs).  
+Purpose:  
+To reduce feedback time for students and workload for teaching assistants (TAs). Chose against Google-native App Scripts so that I had more control over containerization (for untested student code) and CI pipelines (to learn about unit/integration tests).  
+
 Demo video: [Link]
 
 Workflow:
