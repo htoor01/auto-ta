@@ -1,11 +1,13 @@
 # AutoTA Overview
-(Project in progress)
+(Project in progress; DOCUMENTATION INCOMPLETE)
 
-This project was designed to be an autograder for Teaching Assistants grading Java submissions.
+This autograder was designed for Teaching Assistants (TAs) grading Java submissions.
 
-This project was tested in a work environment with actual student grades, so to avoid leaking sensitive student data, all implementation and documentation was done by Haaris Toor. However, planning and research efforts were supported by the Claude Code CLI.
+This project was tested in a work environment with actual student grades, resulting in 200+ submissions being processed and reducing the average grading time of assignments from 3-6 hours to roughly 20-30 minutes. To simulate a similar environment for those without access to a classroom with real student submissions, JSON files and mock data has been provided.
 
-To simulate a similar environment for those without access to a classroom with real student submissions, mock data has been provided.
+To avoid leaking sensitive student data, all implementation and documentation was done by Haaris Toor. However, planning and research efforts were supported by the Claude Code CLI.
+
+Future updates may include supporting other languages. Please see [Collaboration Guidelines](#Collaboration_Guidelines).
 
 # Table of Contents
 
@@ -18,8 +20,11 @@ Below is a list of contents in this documentation.
   - Project structure/architecture
     - Image/gif of site or architecture
   - Version history
+- Collaboration guidelines
 
 # Set-Up Steps
+
+To be finished.
 
 1. Ensure Git is installed on your device. See <a href="https://git-scm.com/install/mac">Git Install documentation</a>. To verify, run `git version` in your terminal.
 
@@ -40,7 +45,7 @@ If the third command fails, it is probably because your local branch is not name
 Purpose:  
 To reduce feedback time for students and workload for teaching assistants (TAs). Chose against Google-native App Scripts so that I had more control over containerization (for untested student code) and CI pipelines (to learn about unit/integration tests).  
 
-Demo video: [Link]
+Demo video: [Link]()
 
 Workflow:
 - Pull submissions from Google Classroom
@@ -81,6 +86,12 @@ File structure:
 
 ## Version history
 
-Version 1 of this project was developed for the Quakerbridge Learning Center's 2026 Java Batch. It included a basic JUnit testing suite and manual pulling of submissions. Close to 200+ submissions were processed and autograded, reducing the average time for grading an assignment from 3-6 hours to roughly 20-30 minutes.  
+Version 1 of this project was developed for the [Quakerbridge Learning Center](https://www.quaker-bridge.org)'s 2026 Java Batch. It included a basic JUnit testing suite and manual pulling of submissions. Close to 200+ submissions were processed and autograded, reducing the average time for grading an assignment from 3-6 hours to roughly 20-30 minutes.  
 
-Version 2 of this project was developed after the summer. To simulate the original environment, in the case that you are not an instructor with access to a classroom, local JSON files and mock data is used to mimic API responses and student data.
+Version 2 of this project was mostly developed after the summer. To simulate the original environment, local JSON files and mock data is used to mimic API responses and student data.
+
+# Collaboration Guidelines
+
+To be finished.
+
+Future updates may include supporting other languages like Python.
