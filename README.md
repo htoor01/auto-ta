@@ -1,6 +1,42 @@
 # AutoTA Overview
 (Project in progress)
 
+This project was designed to be an autograder for Teaching Assistants grading Java submissions.
+
+This project was tested in a work environment with actual student grades, so to avoid leaking sensitive student data, all implementation and documentation was done by Haaris Toor. However, planning and research efforts were supported by the Claude Code CLI.
+
+To simulate a similar environment for those without access to a classroom with real student submissions, mock data has been provided.
+
+# Table of Contents
+
+Below is a list of contents in this documentation.
+- Set up guide
+  - Installation prerequisites
+  - How to run locally
+  - Sample scripts, code snippets, and/or expected responses
+- Project Overview
+  - Project structure/architecture
+    - Image/gif of site or architecture
+  - Version history
+
+# Set-Up Steps
+
+1. Ensure Git is installed on your device. See <a href="https://git-scm.com/install/mac">Git Install documentation</a>. To verify, run `git version` in your terminal.
+
+The result should be your version number. For example, "`git version 2.52.0`". 
+
+2. Choose a file location to pull this repository. Open that folder, establish a connection, and pull with the following steps:
+
+- `git init` to initialize an empty git repository in your folder
+- `git remote add origin https://github.com/htoor01/auto-ta.git` to add this repository as a connection
+- `git pull origin main` to pull the latest version from this repository
+
+If the third command fails, it is probably because your local branch is not named 'main'. Check to see your local branch's name. If it is master, replace 'main' with 'master'. Else, replace with whatever your branch name is.
+
+3. 
+
+# Project Overview
+
 Purpose:  
 To reduce feedback time for students and workload for teaching assistants (TAs). Chose against Google-native App Scripts so that I had more control over containerization (for untested student code) and CI pipelines (to learn about unit/integration tests).  
 
@@ -19,6 +55,8 @@ Concepts learned:
 - Data persistence
 - Dependency management
 - Version control
+
+## Project structure
 
 Architecture:
 - REST APIs (pulling submissions and grades from Google Classroom)
@@ -41,34 +79,8 @@ File structure:
 - pom.xml (Maven dependencies)
 - README.md (this file)
 
-Notes: 
-- Version 1 of this project was developed for the Quakerbridge Learning Center's 2026 Java Batch. It included a basic JUnit testing suite and manual pulling of submissions. Close to 200+ submissions were processed and autograded, reducing the average time for grading an assignment from 3-6 hours to roughly 20-30 minutes.
-- Version 2 of this project was developed after the summer. To simulate the original environment, in the case that you are not an instructor with access to a classroom, local JSON files and mock data is used to mimic API responses and student data.
-- To avoid leaking sensitive student data, all implementation and documentation was done by Haaris Toor. However, planning and research efforts were supported by the Claude Code CLI.
+## Version history
 
-# Table of Contents
+Version 1 of this project was developed for the Quakerbridge Learning Center's 2026 Java Batch. It included a basic JUnit testing suite and manual pulling of submissions. Close to 200+ submissions were processed and autograded, reducing the average time for grading an assignment from 3-6 hours to roughly 20-30 minutes.  
 
-Below is a list of contents in this documentation.
-- Set up guide
-  - Installation prerequisites
-  - How to run locally
-  - Sample scripts, code snippets, and/or expected responses
-- Project Overview
-  - Image/gif of site or architecture
-  - Version history
-
-# Set-Up Steps
-
-1. Ensure Git is installed on your device. See <a href="https://git-scm.com/install/mac">Git Install documentation</a>. To verify, run `git version` in your terminal.
-
-The result should be your version number. For example, "`git version 2.52.0`". 
-
-2. Choose a file location to pull this repository. Open that folder, establish a connection, and pull with the following steps:
-
-- `git init` to initialize an empty git repository in your folder
-- `git remote add origin https://github.com/htoor01/auto-ta.git` to add this repository as a connection
-- `git pull origin main` to pull the latest version from this repository
-
-If the third command fails, it is probably because your local branch is not named 'main'. Check to see your local branch's name. If it is master, replace 'main' with 'master'. Else, replace with whatever your branch name is.
-
-3. 
+Version 2 of this project was developed after the summer. To simulate the original environment, in the case that you are not an instructor with access to a classroom, local JSON files and mock data is used to mimic API responses and student data.
