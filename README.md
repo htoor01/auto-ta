@@ -42,8 +42,9 @@ File structure:
 - README.md (this file)
 
 Notes: 
-- This project was developed for the Quakerbridge Learning Center's 2026 Java Batch. To simulate this, local JSON files and mock data is used to mimic API responses and student data.
-- To avoid leaking sensitive student data, all implementation and documentation was done by Haaris Toor (without AI support).
+- Version 1 of this project was developed for the Quakerbridge Learning Center's 2026 Java Batch. It included a basic JUnit testing suite and manual pulling of submissions. Close to 200+ submissions were processed and autograded, reducing the average time for grading an assignment from 3-6 hours to roughly 20-30 minutes.
+- Version 2 of this project was developed after the summer. To simulate the original environment, in the case that you are not an instructor with access to a classroom, local JSON files and mock data is used to mimic API responses and student data.
+- To avoid leaking sensitive student data, all implementation and documentation was done by Haaris Toor. However, planning and research efforts were supported by the Claude Code CLI.
 
 # Set-Up Steps
 
