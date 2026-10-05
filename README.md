@@ -46,6 +46,17 @@ Notes:
 - Version 2 of this project was developed after the summer. To simulate the original environment, in the case that you are not an instructor with access to a classroom, local JSON files and mock data is used to mimic API responses and student data.
 - To avoid leaking sensitive student data, all implementation and documentation was done by Haaris Toor. However, planning and research efforts were supported by the Claude Code CLI.
 
+# Table of Contents
+
+Below is a list of contents in this documentation.
+- Set up guide
+  - Installation prerequisites
+  - How to run locally
+  - Sample scripts, code snippets, and/or expected responses
+- Project Overview
+  - Image/gif of site or architecture
+  - Version history
+
 # Set-Up Steps
 
 1. Ensure Git is installed on your device. See <a href="https://git-scm.com/install/mac">Git Install documentation</a>. To verify, run `git version` in your terminal.
