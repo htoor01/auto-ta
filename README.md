@@ -1,13 +1,11 @@
-# AutoTA Overview
-(Project in progress; DOCUMENTATION INCOMPLETE)
+# AutoTA: An Auto-Grader for Java Submissions
+Documentation last updated on: `(insert date)`
 
-This autograder was designed for Teaching Assistants (TAs) grading Java submissions.
+This project was partially inspired by AutoLab, although no code from that open-source app was used.
 
-This project was tested in a work environment with actual student grades, resulting in 200+ submissions being processed and reducing the average grading time of assignments from 3-6 hours to roughly 20-30 minutes. To simulate a similar environment for those without access to a classroom with real student submissions, JSON files and mock data has been provided.
+It was tested in a work environment with actual grades, while I was a TA at [Quakerbridge Learning Center](https://www.quaker-bridge.org/#/). It successfully processed 200+ submissions and reduced the grading time of assignments from 3-6 hours to roughly 20-30 minutes. To simulate the original environment, local JSON files and mock data is used to mimic API responses and student data.
 
-To avoid leaking sensitive student data, all implementation and documentation was done by Haaris Toor. However, planning and research efforts were supported by the Claude Code CLI.
-
-Future updates may include supporting other languages. Please see [Collaboration Guidelines](#Collaboration_Guidelines).
+Future updates may include expanding to support other languages. Please see [Collaboration Guidelines](README.md#Collaboration-Guidelines).
 
 # Table of Contents
 
