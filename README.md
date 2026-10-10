@@ -3,7 +3,7 @@ Documentation last updated on: `(insert date)`
 
 This project was partially inspired by AutoLab, although no code from that open-source app was used.
 
-It was tested in a work environment with actual grades, while I was a TA at [Quakerbridge Learning Center](https://www.quaker-bridge.org/#/). It successfully processed 200+ submissions and reduced the grading time of assignments from 3-6 hours to roughly 20-30 minutes. To simulate the original environment, local JSON files and mock data is used to mimic API responses and student data.
+A script-version was tested in a work environment with actual grades, while I was a TA at [Quakerbridge Learning Center](https://www.quaker-bridge.org/#/). It processed 200+ submissions and reduced the grading time of assignments from 3-6 hours to roughly 20-30 minutes. The project was rebuilt in SpringBoot and with proper CI. To simulate the original environment, local JSON files and mock data is provided.
 
 Future updates may include expanding to support other languages. Please see [Collaboration Guidelines](README.md#Collaboration-Guidelines).
 
