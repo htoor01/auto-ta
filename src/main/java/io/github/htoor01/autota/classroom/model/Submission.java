@@ -21,4 +21,9 @@ public record Submission(
     public Submission {
         attachments = attachments == null ? List.of() : List.copyOf(attachments);
     }
+
+    public Submission withGrades(Double draftGrade, Double assignedGrade) {
+        return new Submission(id, courseId, courseWorkId, studentId, studentName, state, late,
+                draftGrade, assignedGrade, attachments);
+    }
 }

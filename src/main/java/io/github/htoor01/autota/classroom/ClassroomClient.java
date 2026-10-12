@@ -25,4 +25,10 @@ public interface ClassroomClient {
 
     /** Downloads a submitted file, e.g. a student's {@code .java} source. */
     AttachmentContent downloadAttachment(String driveFileId);
+
+    /**
+     * Sets a submission's grade. A draft grade is only visible to teachers; otherwise the grade is
+     * also set as the assigned grade. Students see an assigned grade once the submission is returned.
+     */
+    void pushGrade(String courseId, String courseWorkId, String submissionId, double grade, boolean draftOnly);
 }

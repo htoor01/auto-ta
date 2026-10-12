@@ -111,6 +111,23 @@ class GoogleClassroomClient implements ClassroomClient {
         return new AttachmentContent(fileName, content);
     }
 
+    @Override
+    public void pushGrade(String courseId, String courseWorkId, String submissionId, double grade,
+                          boolean draftOnly) {
+        StudentSubmission update = new StudentSubmission().setDraftGrade(grade);
+        String updateMask = "draftGrade";
+        if (!draftOnly) {
+            update.setAssignedGrade(grade);
+            updateMask = "draftGrade,assignedGrade";
+        }
+        String mask = updateMask;
+        call("update grade for submission " + submissionId,
+                () -> classroom.courses().courseWork().studentSubmissions()
+                        .patch(courseId, courseWorkId, submissionId, update)
+                        .setUpdateMask(mask)
+                        .execute());
+    }
+
     private Map<String, String> studentNamesById(String courseId) {
         Map<String, String> names = new HashMap<>();
         String pageToken = null;
