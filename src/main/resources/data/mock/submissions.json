@@ -1,0 +1,70 @@
+[
+  {
+    "id": "sub-001",
+    "courseId": "course-java-2026",
+    "courseWorkId": "cw-calculator",
+    "studentId": "student-001",
+    "studentName": "Student A",
+    "state": "TURNED_IN",
+    "late": false,
+    "draftGrade": null,
+    "assignedGrade": null,
+    "attachments": [
+      { "driveFileId": "file-001", "title": "Calculator.java" }
+    ]
+  },
+  {
+    "id": "sub-002",
+    "courseId": "course-java-2026",
+    "courseWorkId": "cw-calculator",
+    "studentId": "student-002",
+    "studentName": "Student B",
+    "state": "TURNED_IN",
+    "late": true,
+    "draftGrade": null,
+    "assignedGrade": null,
+    "attachments": [
+      { "driveFileId": "file-002", "title": "Calculator.java" }
+    ]
+  },
+  {
+    "id": "sub-003",
+    "courseId": "course-java-2026",
+    "courseWorkId": "cw-calculator",
+    "studentId": "student-003",
+    "studentName": "Student C",
+    "state": "TURNED_IN",
+    "late": false,
+    "draftGrade": null,
+    "assignedGrade": null,
+    "attachments": [
+      { "driveFileId": "file-003", "title": "Calculator.java" }
+    ]
+  },
+  {
+    "id": "sub-004",
+    "courseId": "course-java-2026",
+    "courseWorkId": "cw-calculator",
+    "studentId": "student-004",
+    "studentName": "Student D",
+    "state": "TURNED_IN",
+    "late": false,
+    "draftGrade": null,
+    "assignedGrade": null,
+    "attachments": [
+      { "driveFileId": "file-004", "title": "Calculator.java" }
+    ]
+  },
+  {
+    "id": "sub-005",
+    "courseId": "course-java-2026",
+    "courseWorkId": "cw-calculator",
+    "studentId": "student-005",
+    "studentName": "Student E",
+    "state": "CREATED",
+    "late": false,
+    "draftGrade": null,
+    "assignedGrade": null,
+    "attachments": []
+  }
+]
