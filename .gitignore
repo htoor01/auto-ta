@@ -12,3 +12,5 @@ src/main/resources/credentials.json
 **/credentials.json
 
 tokens/
+
+secrets/
