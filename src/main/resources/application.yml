@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: auto-ta
+  profiles:
+    # 'mock' serves sample data from data/mock; run with 'google' to use real Google Classroom.
+    default: mock
+
+autota:
+  classroom:
+    application-name: AutoTA
+    credentials-path: secrets/credentials.json
+    tokens-dir: tokens
+    oauth-port: 8888
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
