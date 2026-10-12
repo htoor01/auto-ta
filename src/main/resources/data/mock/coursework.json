@@ -1,0 +1,18 @@
+[
+  {
+    "id": "cw-calculator",
+    "courseId": "course-java-2026",
+    "title": "Assignment 1: Calculator",
+    "maxPoints": 100,
+    "dueDate": "2026-10-20",
+    "state": "PUBLISHED"
+  },
+  {
+    "id": "cw-strings",
+    "courseId": "course-java-2026",
+    "title": "Assignment 2: String Utilities",
+    "maxPoints": 50,
+    "dueDate": null,
+    "state": "DRAFT"
+  }
+]
