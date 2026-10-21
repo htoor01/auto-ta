@@ -30,13 +30,22 @@ jobs:
           java-version: '25'
           cache: maven
 
-      # verify = compile, run unit tests, package the jar
+      # Image the grader runs student code in; the integration test uses it.
+      - name: Build grader image
+        run: docker build -t autota-grader:latest docker/grader
+
+      # verify = compile, run unit tests, package the jar, then run the Docker
+      # integration tests (*IT). AUTOTA_REQUIRE_DOCKER makes them fail instead of skip.
       - run: ./mvnw -B verify
+        env:
+          AUTOTA_REQUIRE_DOCKER: 'true'
 
       # On failure, keep the test reports so you can see what broke.
       - uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: test-reports
-          path: target/surefire-reports/
+          path: |
+            target/surefire-reports/
+            target/failsafe-reports/
           retention-days: 7

@@ -11,8 +11,12 @@ public class Calculator {
 
     public int multiply(int a, int b) {
         int result = 0;
-        for (int i = 0; i != b; i++) {
+        int count = 0;
+        while (count != b) {
             result += a;
+            if (b > 0) {
+                count++;
+            }
         }
         return result;
     }
