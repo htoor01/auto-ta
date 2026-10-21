@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Trimmed from a real report for the partially wrong mock submission (file-002). -->
+<testsuites>
+<testsuite name="JUnit Jupiter" tests="3" skipped="0" failures="1" errors="1" time="0.1">
+<testcase name="addsPositiveNumbers()" classname="CalculatorTest" time="0"/>
+<testcase name="subtractsInOrder()" classname="CalculatorTest" time="0">
+<failure message="expected: &lt;6&gt; but was: &lt;-6&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <6> but was: <-6>]]></failure>
+</testcase>
+<testcase name="multipliesByNegativeNumber()" classname="CalculatorTest" time="2.0">
+<error message="multipliesByNegativeNumber() timed out after 2 seconds" type="java.util.concurrent.TimeoutException"><![CDATA[java.util.concurrent.TimeoutException]]></error>
+</testcase>
+</testsuite>
+</testsuites>
