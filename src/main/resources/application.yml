@@ -11,6 +11,16 @@ autota:
     credentials-path: secrets/credentials.json
     tokens-dir: tokens
     oauth-port: 8888
+  grader:
+    docker-command: docker
+    # Build with: docker build -t autota-grader:latest docker/grader
+    image: autota-grader:latest
+    tests-dir: grader-tests
+    work-dir: grader-work
+    timeout: 60s
+    memory: 512m
+    cpus: 1.0
+    pids-limit: 128
 
 management:
   endpoints:
