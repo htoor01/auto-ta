@@ -1,6 +1,12 @@
 spring:
   application:
     name: auto-ta
+  datasource:
+    # Grading runs and results. The file holds student names and grades: it is gitignored, keep it private.
+    # WAL lets the API read while the grader writes; busy_timeout waits instead of failing on a locked database.
+    url: jdbc:sqlite:autota.db?journal_mode=WAL&busy_timeout=5000&foreign_keys=true
+    hikari:
+      maximum-pool-size: 4
   profiles:
     # 'mock' serves sample data from data/mock; run with 'google' to use real Google Classroom.
     default: mock
@@ -21,6 +27,7 @@ autota:
     memory: 512m
     cpus: 1.0
     pids-limit: 128
+    queue-capacity: 10
 
 management:
   endpoints:
