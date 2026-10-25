@@ -1,7 +1,12 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/autota-logo-dark.svg">
+  <img src="docs/assets/autota-logo-light.svg" alt="AutoTA" width="316">
+</picture>
+
 # AutoTA: An Auto-Grader for Java Submissions
 [![CI](https://github.com/htoor01/auto-ta/actions/workflows/ci.yml/badge.svg)](https://github.com/htoor01/auto-ta/actions/workflows/ci.yml)
 
-Documentation last updated on: `October 20, 2026`
+Documentation last updated on: `October 24, 2026`
 
 This project was partially inspired by AutoLab, although no code from that open-source app was used.
 
