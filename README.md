@@ -6,11 +6,13 @@
 # AutoTA: An Auto-Grader for Java Submissions
 [![CI](https://github.com/htoor01/auto-ta/actions/workflows/ci.yml/badge.svg)](https://github.com/htoor01/auto-ta/actions/workflows/ci.yml)
 
-Documentation last updated on: `October 24, 2026`
+Documentation last updated on: `November 1, 2026`
 
 This project was partially inspired by AutoLab, although no code from that open-source app was used.
 
 A script-version was tested in a work environment with actual grades, while I was a TA at [Quakerbridge Learning Center](https://www.quaker-bridge.org/#/). It processed 200+ submissions and reduced the grading time of assignments from 3-6 hours to roughly 20-30 minutes. The project is now being rebuilt as a Spring Boot service with automated tests and CI. To simulate the original environment, local JSON files and mock data are provided.
+
+As of November 1, 2026, this repository will be the public-facing open-source version of the tool used at the center.
 
 > **Status:** Version 2 is in progress. It pulls courses, assignments and submissions from Google Classroom (or from mock data) and grades each submission by running the instructor's JUnit tests in a locked-down Docker container. Persistence and metrics are next. See [Roadmap](#roadmap).
 
