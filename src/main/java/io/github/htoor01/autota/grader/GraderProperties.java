@@ -17,6 +17,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @param memory        container memory limit, e.g. {@code 512m}; swap is disabled
  * @param cpus          container CPU limit
  * @param pidsLimit     maximum processes/threads in the container (stops fork bombs)
+ * @param queueCapacity grading runs that may wait behind the one in progress before requests get a 503
  */
 @ConfigurationProperties("autota.grader")
 public record GraderProperties(
@@ -27,5 +28,6 @@ public record GraderProperties(
         Duration timeout,
         String memory,
         double cpus,
-        int pidsLimit) {
+        int pidsLimit,
+        int queueCapacity) {
 }

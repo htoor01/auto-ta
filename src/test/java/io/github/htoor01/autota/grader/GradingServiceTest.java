@@ -12,6 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.Duration;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -41,7 +42,7 @@ class GradingServiceTest {
     void setUp() throws IOException {
         Files.createDirectories(dir.resolve("tests/cw-1"));
         GraderProperties properties = new GraderProperties("docker", "img", dir.resolve("tests"), dir.resolve("work"),
-                Duration.ofSeconds(60), "512m", 1.0, 128);
+                Duration.ofSeconds(60), "512m", 1.0, 128, 10);
         ContainerRunner fakeRunner = (submissionDir, testsDir, reportsDir) -> {
             assertThat(submissionDir.resolve("Calculator.java")).exists();
             if (writeReport) {
@@ -130,11 +131,22 @@ class GradingServiceTest {
     }
 
     @Test
+    void removesWorkFoldersLeftByACrash() throws IOException {
+        Files.createDirectories(dir.resolve("work/left-by-crash/submission"));
+        Files.writeString(dir.resolve("work/left-by-crash/submission/Calculator.java"), "class Calculator {}");
+
+        assertThat(service.removeLeftoverWorkDirs()).isEqualTo(1);
+        try (var leftovers = Files.list(dir.resolve("work"))) {
+            assertThat(leftovers).isEmpty();
+        }
+    }
+
+    @Test
     void refusesAssignmentWithoutTests() {
         when(classroomClient.listCourseWork("c-1")).thenReturn(List.of(
                 new CourseWork("cw-2", "c-1", "Strings", 50.0, null, "DRAFT")));
 
-        assertThatThrownBy(() -> service.gradeAssignment("c-1", "cw-2"))
+        assertThatThrownBy(() -> service.prepare("c-1", "cw-2"))
                 .isInstanceOf(ResourceNotFoundException.class)
                 .hasMessageContaining("No grader tests");
     }
@@ -153,7 +165,8 @@ class GradingServiceTest {
     }
 
     private GradingResult gradeOne() {
-        List<GradingResult> results = service.gradeAssignment("c-1", "cw-1");
+        List<GradingResult> results = new ArrayList<>();
+        service.grade(service.prepare("c-1", "cw-1"), results::add);
         assertThat(results).hasSize(1);
         return results.getFirst();
     }

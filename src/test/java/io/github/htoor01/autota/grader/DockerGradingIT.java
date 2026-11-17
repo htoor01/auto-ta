@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assumptions.assumeThat;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -47,7 +48,8 @@ class DockerGradingIT {
 
     @Test
     void gradesEachKindOfSampleSubmission() {
-        List<GradingResult> results = gradingService.gradeAssignment("course-java-2026", "cw-calculator");
+        List<GradingResult> results = new ArrayList<>();
+        gradingService.grade(gradingService.prepare("course-java-2026", "cw-calculator"), results::add);
         Map<String, GradingResult> byId = results.stream()
                 .collect(Collectors.toMap(GradingResult::submissionId, Function.identity()));
 

@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.attribute.PosixFilePermissions;
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
+import java.util.function.Consumer;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
@@ -27,8 +27,8 @@ import io.github.htoor01.autota.classroom.model.Submission;
  * instructor tests from {@code <testsDir>/<courseWorkId>/} in a container, and turns the report into a
  * suggested grade. One failing submission never stops the others.
  *
- * <p>Grading is synchronous and sequential for now: simple, and one container at a time keeps the
- * machine responsive. Moving it to a background job is planned once results are stored.
+ * <p>Split into {@link #prepare} (fast checks, run while the request waits, so mistakes fail with a 404)
+ * and {@link #grade} (slow, run in the background by {@link GradingQueue}).
  */
 @Service
 public class GradingService {
@@ -48,19 +48,44 @@ public class GradingService {
         this.properties = properties;
     }
 
-    public List<GradingResult> gradeAssignment(String courseId, String courseWorkId) {
+    /** Checks the assignment exists and has instructor tests. */
+    public GradingJob prepare(String courseId, String courseWorkId) {
         CourseWork courseWork = classroomClient.listCourseWork(courseId).stream()
                 .filter(work -> work.id().equals(courseWorkId))
                 .findFirst()
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Coursework " + courseWorkId + " not found in course " + courseId));
-        Path testsDir = testsDirFor(courseWorkId);
+        return new GradingJob(courseId, courseWorkId, courseWork.maxPoints(), testsDirFor(courseWorkId));
+    }
 
-        List<GradingResult> results = new ArrayList<>();
-        for (Submission submission : classroomClient.listSubmissions(courseId, courseWorkId)) {
-            results.add(gradeSubmission(submission, courseWork.maxPoints(), testsDir));
+    /** Grades every submission, handing each result to {@code onResult} as soon as it is ready. */
+    public void grade(GradingJob job, Consumer<GradingResult> onResult) {
+        for (Submission submission : classroomClient.listSubmissions(job.courseId(), job.courseWorkId())) {
+            onResult.accept(gradeSubmission(submission, job.maxPoints(), job.testsDir()));
         }
-        return results;
+    }
+
+    /** An assignment that passed {@link #prepare} and is ready to grade. */
+    public record GradingJob(String courseId, String courseWorkId, Double maxPoints, Path testsDir) {
+    }
+
+    /**
+     * Deletes work folders left behind when AutoTA stopped mid-grade (normally each one is deleted as soon
+     * as its submission is graded). They can hold student code, so they shouldn't pile up. Returns how many.
+     */
+    public int removeLeftoverWorkDirs() {
+        Path root = properties.workDir().toAbsolutePath();
+        if (!Files.isDirectory(root)) {
+            return 0;
+        }
+        try (Stream<Path> dirs = Files.list(root)) {
+            List<Path> leftovers = dirs.toList();
+            leftovers.forEach(GradingService::deleteQuietly);
+            return leftovers.size();
+        } catch (IOException e) {
+            log.warn("Could not clean up grading work folder {}", root, e);
+            return 0;
+        }
     }
 
     private Path testsDirFor(String courseWorkId) {
