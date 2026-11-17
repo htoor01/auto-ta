@@ -2,15 +2,18 @@ package io.github.htoor01.autota.web;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import io.github.htoor01.autota.classroom.ClassroomException;
 import io.github.htoor01.autota.classroom.ResourceNotFoundException;
+import io.github.htoor01.autota.grader.GradingQueueFullException;
 
-/** Turns Classroom failures into RFC 9457 problem responses with a sensible status code. */
+/** Turns Classroom and grading failures into RFC 9457 problem responses with a sensible status code. */
 @RestControllerAdvice
 class ApiExceptionHandler {
 
@@ -32,5 +35,13 @@ class ApiExceptionHandler {
         ProblemDetail problem = ProblemDetail.forStatusAndDetail(status, e.getMessage());
         problem.setProperty("upstreamStatus", e.getUpstreamStatus());
         return problem;
+    }
+
+    /** Overload: tell the client to back off rather than queueing without limit. */
+    @ExceptionHandler(GradingQueueFullException.class)
+    ResponseEntity<ProblemDetail> handleQueueFull(GradingQueueFullException e) {
+        return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE)
+                .header(HttpHeaders.RETRY_AFTER, "30")
+                .body(ProblemDetail.forStatusAndDetail(HttpStatus.SERVICE_UNAVAILABLE, e.getMessage()));
     }
 }

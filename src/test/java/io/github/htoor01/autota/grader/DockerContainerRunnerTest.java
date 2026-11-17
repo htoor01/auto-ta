@@ -12,7 +12,7 @@ class DockerContainerRunnerTest {
 
     private final DockerContainerRunner runner = new DockerContainerRunner(new GraderProperties(
             "docker", "autota-grader:latest", Path.of("grader-tests"), Path.of("grader-work"),
-            Duration.ofSeconds(60), "512m", 1.0, 128));
+            Duration.ofSeconds(60), "512m", 1.0, 128, 10));
 
     @Test
     void locksDownTheContainer() {
