@@ -30,6 +30,7 @@ Future updates may include expanding to support other languages. Please see [Col
   - [Roadmap](#roadmap)
   - [Version history](#version-history)
 - [Collaboration Guidelines](#collaboration-guidelines)
+- [License](#license)
 
 # Set-Up Steps
 
@@ -221,3 +222,7 @@ Version 2 (this repository) was mostly developed after the summer and is in prog
 - To grade a new assignment, add its tests to `grader-tests/<courseWorkId>/`.
 
 Future updates may include supporting other languages like Python.
+
+# License
+
+AutoTA is released under the [MIT License](LICENSE).
