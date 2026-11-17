@@ -69,6 +69,25 @@ public class GradingService {
     public record GradingJob(String courseId, String courseWorkId, Double maxPoints, Path testsDir) {
     }
 
+    /**
+     * Deletes work folders left behind when AutoTA stopped mid-grade (normally each one is deleted as soon
+     * as its submission is graded). They can hold student code, so they shouldn't pile up. Returns how many.
+     */
+    public int removeLeftoverWorkDirs() {
+        Path root = properties.workDir().toAbsolutePath();
+        if (!Files.isDirectory(root)) {
+            return 0;
+        }
+        try (Stream<Path> dirs = Files.list(root)) {
+            List<Path> leftovers = dirs.toList();
+            leftovers.forEach(GradingService::deleteQuietly);
+            return leftovers.size();
+        } catch (IOException e) {
+            log.warn("Could not clean up grading work folder {}", root, e);
+            return 0;
+        }
+    }
+
     private Path testsDirFor(String courseWorkId) {
         Path root = properties.testsDir().toAbsolutePath().normalize();
         Path dir = root.resolve(courseWorkId).normalize();

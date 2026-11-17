@@ -131,6 +131,17 @@ class GradingServiceTest {
     }
 
     @Test
+    void removesWorkFoldersLeftByACrash() throws IOException {
+        Files.createDirectories(dir.resolve("work/left-by-crash/submission"));
+        Files.writeString(dir.resolve("work/left-by-crash/submission/Calculator.java"), "class Calculator {}");
+
+        assertThat(service.removeLeftoverWorkDirs()).isEqualTo(1);
+        try (var leftovers = Files.list(dir.resolve("work"))) {
+            assertThat(leftovers).isEmpty();
+        }
+    }
+
+    @Test
     void refusesAssignmentWithoutTests() {
         when(classroomClient.listCourseWork("c-1")).thenReturn(List.of(
                 new CourseWork("cw-2", "c-1", "Strings", 50.0, null, "DRAFT")));

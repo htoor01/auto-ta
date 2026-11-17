@@ -32,6 +32,10 @@ public class GradingQueue {
         if (interrupted > 0) {
             log.warn("Marked {} unfinished grading run(s) from a previous start as FAILED", interrupted);
         }
+        int leftovers = gradingService.removeLeftoverWorkDirs();
+        if (leftovers > 0) {
+            log.warn("Removed {} grading work folder(s) left behind by a previous start", leftovers);
+        }
     }
 
     /** Validates the assignment now (404 if wrong), then queues it. Returns the QUEUED run. */
