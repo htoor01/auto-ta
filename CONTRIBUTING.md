@@ -2,7 +2,7 @@
 
 Welcome. AutoTA is an open-source autograder for Java assignments from Google Classroom. There are two ways to contribute:
 
-- **With code**: the Spring Boot service, the Docker grader, CI, or documentation. See the [README](README.md#project-overview) for how the pieces fit together.
+- **With code**: the Spring Boot service, the Docker grader, CI, or documentation. See [Architecture](docs/architecture.md) for how the pieces fit together.
 - **With instructor tests**: JUnit tests for a new assignment, so AutoTA can grade it. See [Adding instructor tests](#adding-instructor-tests) below.
 
 ## Making a change
@@ -13,7 +13,7 @@ Welcome. AutoTA is an open-source autograder for Java assignments from Google Cl
    docker build -t autota-grader:latest docker/grader
    ./mvnw verify
    ```
-   Maven does not need to be installed; `./mvnw` downloads it. See also: [Set-Up Steps](README.md#set-up-steps), including running without Docker Desktop on macOS.
+   Maven does not need to be installed; `./mvnw` downloads it. See also: the [setup guide](docs/setup.md), including running without Docker Desktop on macOS.
 3. **Branch:**
    ```bash
    git checkout -b your-change-name
@@ -24,7 +24,7 @@ The **Build and test** check must pass before a pull request can be merged. It b
 
 ### Adding instructor tests
 
-Instructor tests are plain JUnit files, one folder per assignment: `grader-tests/<courseWorkId>/`. AutoTA compiles them together with each student's `.java` files and runs them in a locked-down container (see [Grading sandbox](README.md#grading-sandbox)). Before opening a pull request with new tests, check that:
+Instructor tests are plain JUnit files, one folder per assignment: `grader-tests/<courseWorkId>/`. AutoTA compiles them together with each student's `.java` files and runs them in a locked-down container (see [Grading sandbox](docs/architecture.md#grading-sandbox)). Before opening a pull request with new tests, check that:
 
 - They are in `grader-tests/<courseWorkId>/`, in the default package (no `package` line), like the student files they test.
 - They use only JUnit Jupiter (`org.junit.jupiter.api`) and the Java standard library. The container has no network and no other libraries.
@@ -35,7 +35,7 @@ Instructor tests are plain JUnit files, one folder per assignment: `grader-tests
 ## Repository rules
 
 **Documentation:**
-- Keep the [README](README.md) accurate: update the Set-Up Steps, the endpoint table and the Known limitations when behaviour changes. Anything not built yet is marked as planned.
+- Keep the docs accurate: the [setup guide](docs/setup.md) (endpoints, configuration) and [architecture](docs/architecture.md) (design, known limitations, roadmap) when behaviour changes, and the [README](README.md) when what AutoTA does changes. Anything not built yet is marked as planned.
 - Explain *why* in the pull request description, especially for trade-offs (sandbox limits, persistence, concurrency).
 
 **Never commit:**
