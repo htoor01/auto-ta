@@ -15,7 +15,7 @@ A script-version was tested in a work environment with actual grades, while I wa
 > **Status:** Version 2 is in progress. It pulls courses, assignments and submissions from Google Classroom (or from mock data) and grades each submission by running the instructor's JUnit tests in a locked-down Docker container. Persistence and metrics are next. See [Roadmap](#roadmap).  
 > **Additionally:** Version 2 is the public-facing version of a similar tool used at the center. This repository has diverged from the center's internal tool, which continues to be developed and maintained separate from this repository as per the center's needs. This repository includes local JSON files and mock data to simulate a generic classroom environment.
 
-Future updates may include expanding to support other languages. Please see [Collaboration Guidelines](#collaboration-guidelines).
+Future updates may include expanding to support other languages. Please see [Contributing](CONTRIBUTING.md).
 
 # Table of Contents
 
@@ -29,7 +29,7 @@ Future updates may include expanding to support other languages. Please see [Col
   - [Known limitations](#known-limitations)
   - [Roadmap](#roadmap)
   - [Version history](#version-history)
-- [Collaboration Guidelines](#collaboration-guidelines)
+- [Contributing](#contributing)
 - [License](#license)
 
 # Set-Up Steps
@@ -214,12 +214,9 @@ Version 1 of this project was developed for the [Quakerbridge Learning Center](h
 
 Version 2 (this repository) was mostly developed after the summer and is in progress. To simulate the original environment, local JSON files and mock data are used to mimic API responses and student data.
 
-# Collaboration Guidelines
+# Contributing
 
-- Create a branch for each change and open a pull request into `main`.
-- CI must pass ("Build and test") before a pull request can be merged.
-- Never commit credentials: `secrets/`, `tokens/` and `.env` are gitignored.
-- To grade a new assignment, add its tests to `grader-tests/<courseWorkId>/`.
+Contributions are welcome: code, documentation, or instructor tests for new assignments. See [CONTRIBUTING.md](CONTRIBUTING.md) for how to set up, open a pull request, and what never to commit.
 
 Future updates may include supporting other languages like Python.
 
